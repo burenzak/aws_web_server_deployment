@@ -10,7 +10,7 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "eu-central-1"
-  shared_credentials_file = "C:/Users/Buren/.awscreds"
+  shared_credentials_file = "C:/Users/Buren/.aws/credentials"
   profile                 = "default"
 }
 
@@ -37,8 +37,8 @@ resource "aws_route_table" "route_table_1" {
     carrier_gateway_id = null
     cidr_block = "0.0.0.0/0"
     destination_prefix_list_id = null
-    egress_only_gateway_id = "aws_internet_gateway.gateway_1.id"
-    gateway_id = "aws_internet_gateway.gateway_1.id"
+    egress_only_gateway_id = aws_internet_gateway.gateway_1.id
+    gateway_id = aws_internet_gateway.gateway_1.id
     instance_id = null
     ipv6_cidr_block = "::/0"
     local_gateway_id = null
